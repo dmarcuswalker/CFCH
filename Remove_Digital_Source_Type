@@ -1,0 +1,23 @@
+pushd \\smb.si-osmisilon1.si.edu\dams\import_01\walkerdm\TEMP-XFER\ACETATE_MASTER\Pending_Ingest\Asch_10_Inch_Discs\10_Inch_Discs_Pending_Ingest\Batch_05
+
+pushd \\smb.si-osmisilon1.si.edu\dams\import_01\walkerdm\TEMP-XFER\ACETATE_MASTER\Pending_Ingest\Asch_10_Inch_Discs\10_Inch_Discs_Pending_Ingest\Batch_05
+
+************
+NOTES:
+
+
+The exif tag is –DigitalSourceType
+ 
+
+So, to remove files (overwriting), the script is:
+
+exiftool –overwrite_original –DigitalSourceType=  \\smb.si-osmisilon1.si.edu\dams\import_01\walkerdm\TEMP-XFER\ACETATE_MASTER\Pending_Ingest\Asch_10_Inch_Discs\10_Inch_Discs_Pending_Ingest\Batch_000
+
+exiftool –overwrite_original –DigitalSourceType=  \\smb.si-osmisilon1.si.edu\dams\import_01\walkerdm\TEMP-XFER\ACETATE_MASTER\Pending_Ingest\ASCH_BROKEN_DISCS\Broken_All
+ 
+–overwrite_original overwrites the files otherwise it makes copies with appended filename values
+
+You could add in an -ext tiff at the end if you want (before file/folders)
+-r added in would do recursive directories..
+
+–DigitalSourceType=  is the part that writes to this field and the =SPACE indicates write nothing (ie delete values)
