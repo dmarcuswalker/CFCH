@@ -1,0 +1,4 @@
+Move files in list from one directory to another - command prompt
+
+Example
+FOR /F "USEBACKQ TOKENS=*" %F IN ("C:\Users\WalkerDM\Desktop\Move_Script_Test\files.txt") DO XCOPY /F /Y "C:\Users\WalkerDM\Desktop\Move_Script_Test\Source" "C:\Users\WalkerDM\Desktop\Move_Script_Test\Destination\"
