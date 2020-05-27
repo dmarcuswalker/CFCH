@@ -1,0 +1,5 @@
+First, use CD or PUSHD command to identify folder to inspect
+
+Example of PUSHD:pushd \\smb.si-osmisilon1.si.edu\dams\import_01\walkerdm\TEMP-XFER\INGESTED\2020-04-21_Collector_Sleeves
+
+dir /a /s /b > File_List.txt
