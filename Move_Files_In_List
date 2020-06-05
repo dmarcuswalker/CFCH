@@ -2,3 +2,32 @@ Move files in list from one directory to another - command prompt
 
 Example
 FOR /F "USEBACKQ TOKENS=*" %F IN ("C:\Users\WalkerDM\Desktop\Move_Script_Test\files.txt") DO XCOPY /F /Y "C:\Users\WalkerDM\Desktop\Move_Script_Test\Source" "C:\Users\WalkerDM\Desktop\Move_Script_Test\Destination\"
+
+
+
+BELOW is an example "files.txt" contents
+
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (5) - Copy (2).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (5) - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (5).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (6) - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (6).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (7).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy - Copy - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy - Copy (2).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (2) - Copy - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (2) - Copy (2).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (2) - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (2).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (3) - Copy - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (3) - Copy (2).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (3) - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (3).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (4) - Copy - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (4) - Copy (2).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (4) - Copy.txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (4).txt
+C:\Users\WalkerDM\Desktop\Move_Script_Test\Source\text_doc - Copy (5) - Copy - Copy.txt
