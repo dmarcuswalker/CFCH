@@ -1,0 +1,1 @@
+ffmpeg -f lavfi -i color=c=black:s=1280x720:r=5 -i [original file name] -crf 0 -c:a copy -shortest [new name].movq
