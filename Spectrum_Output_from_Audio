@@ -16,3 +16,7 @@ ffmpeg -i [input.wav] -filter_complex \
 Generate a preview of the wave file in real time:
 ffplay -f lavfi 'amovie=FP-1980-7RR-0222_Excerpt_Wavelab.wav,asplit=2[out1][a]; [a]showspectrum=color=channel:scale=cbrt:orientation=vertical:overlap=1:s=2048x1024[out0]'
 
+Overlay Filename in top left corner (in progress)
+ffmpeg -i [input.mp4] -vf drawtext="fontfile=/path/to/font.ttf: \
+text='filename?': fontcolor=white: fontsize=24: box=1: boxcolor=black@0.5: x=(w-text_w)/20:y=(h-text_h)/20 \
+boxborderw=5: x=(w-text_w)/20: y=(h-text_h)/20" -codec:a copy [output.mp4]
