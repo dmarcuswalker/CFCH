@@ -1,0 +1,11 @@
+Bash scripts using FFMPEG to generate spectral views of audio for QC purposes:
+
+Generate a fixed image file of the whole audio file:
+ffmpeg -i [input.wav] -lavfi showspectrumpic=color='fire':saturation=9.5 [output.jpg]
+
+Generate a moving image file of the wav file in real time:
+ffmpeg -i [input.wav] -filter_complex "[0:a]showspectrum=slide=scroll:saturation=10:format=yuv420p[v]" -map "[v]" -map 0:a -b:v 700k -b:a 360k [output.mp4]
+
+Generate a preview of the wave file in real time:
+ffplay -f lavfi 'amovie=FP-1980-7RR-0222_Excerpt_Wavelab.wav,asplit=2[out1][a]; [a]showspectrum=color=channel:scale=cbrt:orientation=vertical:overlap=1:s=2048x1024[out0]'
+
