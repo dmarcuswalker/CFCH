@@ -1,0 +1,1 @@
+ffmpeg -i [input.wav] -filter_complex "[0:a]showspectrum=s=854x480:mode=separate:slide=scroll:saturation=1.8:scale=log:gain=40:color=fire,format=yuv420p[v]; [v]drawtext=text='text':fontcolor=White@0.5: fontsize=30:font=Arvo:x=(w-text_w)/20:y=(h-text_h)/20[out]" -map "[out]" -map 0:a [output.mp4]
