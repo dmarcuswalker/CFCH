@@ -1,0 +1,3 @@
+@echo off & setlocal EnableDelayedExpansion
+for %%a IN ("*.wav") do (ffmpeg -i "%%a" -filter_complex "[0:a]showspectrum=s=854x480:mode=separate:slide=scroll:saturation=1.8:scale=log:gain=40:color=fire,format=yuv420p[v]; [v]drawtext=text="%%a"':fontcolor=White@0.5: fontsize=30:font=Arial:x=(w-text_w)/20:y=(h-text_h)/20" -map 0:a "%%~na.mp4")
+pause
