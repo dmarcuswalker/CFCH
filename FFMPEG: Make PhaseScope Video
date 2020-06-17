@@ -1,0 +1,1 @@
+ffmpeg -i [input.mp4] -filter_complex "[0:a]avectorscope=s=480x480:zoom=5:rc=40:gc=160:bc=80:rf=15:gf=10:bf=0:af=5:m=lissajous:rate=100:draw=dot:scale=lin,format=yuv420p[v]" -map "[v]" -map 0:a [output.mp4]
