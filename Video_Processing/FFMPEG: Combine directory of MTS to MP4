@@ -1,0 +1,1 @@
+IFS=$(echo -en "\n\b"); for i in *.MTS; do ffmpeg -i "$i" -vcodec mpeg4 -b:v 15M -acodec libmp3lame -b:a 192k "$i.mp4"; done
