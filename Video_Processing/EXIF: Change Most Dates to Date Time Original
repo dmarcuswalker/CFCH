@@ -1,0 +1,5 @@
+**Set most common dates to the DateTimeOriginal date**
+exiftool "-datetimeoriginal>CreateDate" "-datetimeoriginal>FileCreateDate" "-datetimeoriginal>filemodifydate" "-datetimeoriginal>ModifyDate" "-datetimeoriginal>TrackCreateDate" "-datetimeoriginal>TrackModifyDate" "-datetimeoriginal>MediaCreateDate" "-datetimeoriginal>MediaModifyDate" "-datetimeoriginal>MetadataDate" [input.mp4]
+
+**Set only CreateDate as DateTime Original**
+exiftool "-DateTimeOriginal>createdate" [input.mp4]
