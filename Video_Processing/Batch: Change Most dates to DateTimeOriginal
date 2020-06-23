@@ -1,0 +1,3 @@
+@echo off & setlocal EnableDelayedExpansion
+for %%a IN ("*.mp4") do (exiftool "-datetimeoriginal>CreateDate" "-datetimeoriginal>FileCreateDate" "-datetimeoriginal>filemodifydate" "-datetimeoriginal>ModifyDate" "-datetimeoriginal>TrackCreateDate" "-datetimeoriginal>TrackModifyDate" "-datetimeoriginal>MediaCreateDate" "-datetimeoriginal>MediaModifyDate" "-datetimeoriginal>MetadataDate" "%%~na.mp4")
+pause
