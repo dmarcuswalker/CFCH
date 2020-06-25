@@ -1,0 +1,1 @@
+ffmpeg -y -i [input] -filter_complex "[0:a]compand,showvolume=o=v:h=80:w=130:r=120:dm=30:b=5[v]" -map '[v]' -map '0:a' -c:a copy [output.mp4]
