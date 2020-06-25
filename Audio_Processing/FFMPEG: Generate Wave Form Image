@@ -1,0 +1,11 @@
+Some tests:
+
+ffmpeg -i 1984_sample.mp3 -filter_complex "showwavespic=s=640x240:split_channels=1" -frames:v 1 output.png
+
+ffmpeg -i 1984_sample.mp3 -filter_complex "compand,showwavespic=s=640x120:split_channels=1" -frames:v 1 1984_sample_companded.png
+
+ffmpeg -i 1984_sample.mp3 -filter_complex "[0:a]compand,showwavespic=s=640x120:split_channels=1,format=yuv420p[v]; [v]drawtext=text='text':fontcolor=White@0.5: fontsize=30:font=Arvo:x=(w-text_w)/20:y=(h-text_h)/20[out]" -map "[out]" -map 0:a 1984_sample_Compand_video.mp4
+
+ffmpeg -i 1984_sample.mp3 -filter_complex "[0:a]compand,showwaves=s=1280x720:split_channels=1:mode=line:rate=250:scale=lin,format=yuv420p[v]" -map "[v]" -map 0:a -c:v libx264 -c:a copy showwaves_line3.mp4
+
+ffmpeg -i 1984_sample.mp3 -filter_complex "compand,showwaves=s=720x100:mode=cline:rate=25" beat_marker_graphic13.mp4
