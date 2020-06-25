@@ -1,0 +1,4 @@
+ifn="1984_sample.mp3"
+ifnb="`basename \"${ifn}\" .mp3`"
+
+ffmpeg -y -i "${ifn}" [code goes here] "${ifnb}.mp4"
