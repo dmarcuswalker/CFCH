@@ -1,4 +1,9 @@
-Some tests:
+Best so far:
+ffmpeg -i 1984_sample.mp3 -filter_complex "compand,showwavespic=s=1280x720:split_channels=1" -frames:v 1 1984_sample_V2.png
+
+
+
+Other tests: 
 
 ffmpeg -i 1984_sample.mp3 -filter_complex "showwavespic=s=640x240:split_channels=1" -frames:v 1 output.png
 
