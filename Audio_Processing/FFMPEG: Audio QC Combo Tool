@@ -1,4 +1,4 @@
-ifn="hoge.wav"
+ifn="input.wav"
 ifnb="`basename \"${ifn}\" .wav`"
 
 ffmpeg -i "${ifn}" -filter_complex \
@@ -8,5 +8,5 @@ ffmpeg -i "${ifn}" -filter_complex \
  [0:a]compand,showvolume=o=v:h=120:w=240:r=120:dm=30:b=5[sv];
  [vs][ss]overlay=H-80[bs]; \
  [bs][sv]overlay=H-73:h+39[bg];
- [bg][sw]overlay=0:H-h,drawtext=fontfile=/usr/share/fonts/TTF/Vera.ttf:fontsize=30:fontcolor=white@0.5:x=10:y=10:text='${ifn}'[out]" \
--map "[out]" -map 0:a "hoge_2.mp4"
+ [bg][sw]overlay=0:H-h,drawtext=font=Arial:fontsize=30:fontcolor=white@0.5:x=15:y=25:text='${ifn}'[out]" \
+-map "[out]" -map 0:a "'${ifn}'.mp4"
