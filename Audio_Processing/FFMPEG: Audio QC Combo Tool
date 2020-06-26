@@ -9,4 +9,4 @@ ffmpeg -i "${ifn}" -filter_complex \
  [vs][ss]overlay=H-80[bs]; \
  [bs][sv]overlay=H-73:h+39[bg];
  [bg][sw]overlay=0:H-h,drawtext=font=Arial:fontsize=30:fontcolor=white@0.5:x=15:y=25:text='${ifn}'[out]" \
--map "[out]" -map 0:a "'${ifn}'.mp4"
+-map "[out]" -map 0:a "${ifn}.mp4"
