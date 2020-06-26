@@ -1,0 +1,14 @@
+I routinely come across this error when dealing with large video files:
+
+"Warning                         : End of processing at large atom (LargeFileSupport not enabled)"
+
+And have figured it out in the past, but now is the time to actually document how to fix it:
+
+
+One work around is to paste the following command after "exiftool" in command line, but before the file name: -api largefilesupport=1
+
+Example:
+
+Output a list of info from mp4s in a directory:
+
+exiftool -api largefilesupport=1 -r "*.MP4" > results2.txt
