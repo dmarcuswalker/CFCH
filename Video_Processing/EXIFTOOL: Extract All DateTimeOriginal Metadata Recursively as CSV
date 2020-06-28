@@ -1,1 +1,1 @@
-exiftool -api largefilesupport=1 -csv -datetimeoriginal -r -ee W:\2019_Video_Projects\CFCH-AVPR_2019_0629_Smithsonian_Folklife_Festival\2019_06_30 > datetimeoriginal_all.csv
+exiftool -api largefilesupport=1 -csv -r W:\2019_Video_Projects\SFF2019_Folklife_Festival_Video_ALL > EXIF_All_Cards_EXTRACT.csv
