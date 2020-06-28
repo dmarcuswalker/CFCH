@@ -1,0 +1,3 @@
+exiftool -api largefilesupport=1 -r "*.MOV" > exiftooloutput.txt
+exiftool -api largefilesupport=1 -r "*.MTS" > exiftooloutput.txt
+exiftool -api largefilesupport=1 -r "*.MP4" > exiftooloutput.txt
