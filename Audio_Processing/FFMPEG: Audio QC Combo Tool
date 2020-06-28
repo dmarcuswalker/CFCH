@@ -5,7 +5,7 @@ ffmpeg -i "${ifn}" -filter_complex \
 "[0:a]showspectrum=mode=separate:slide=scroll:saturation=1.8:scale=log:gain=40:color=fire:s=640x518,pad=900:720[vs]; \
  [0:a]avectorscope=s=260x260:zoom=5:rc=40:gc=160:bc=80:rf=15:gf=10:bf=0:af=5:m=lissajous:rate=100:draw=dot:scale=lin,format=yuv420p[ss]; \
  [0:a]compand,showwaves=s=900x202:mode=cline:n=20:r=120:draw=full,format=yuv420p[sw]; \
- [0:a]compand,showvolume=o=v:h=120:w=240:r=120:dm=30:b=5[sv];
+ [0:a]showvolume=o=v:h=120:w=240:r=120:dm=30:b=5[sv];
  [vs][ss]overlay=H-80[bs]; \
  [bs][sv]overlay=H-73:h+39[bg];
  [bg][sw]overlay=0:H-h,drawtext=font=Arial:fontsize=30:fontcolor=white@0.5:x=15:y=25:text='${ifn}'[out]" \
