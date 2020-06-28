@@ -1,0 +1,1 @@
+ffmpeg -i [input.mp4] -i [frame.png] -filter_complex "overlay=H-h:W-w" [output.mp4]
