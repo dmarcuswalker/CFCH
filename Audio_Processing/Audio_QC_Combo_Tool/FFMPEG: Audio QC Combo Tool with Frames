@@ -9,5 +9,5 @@ ffmpeg -i "${ifn}" -i AudioQC_Frames.png -filter_complex \
  [vs][ss]overlay=H+300[bs]; \
  [bs][sv]overlay=H+308:h+39[bg]; \
  [bg][sw]overlay=0:H-h[aw]; \
- [aw][1:v]overlay=H-h:W-w,drawtext=text="${ifn}":fontcolor=White@0.5: fontsize=30:font=Arial:x=(w-text_w)/20:y=(h-text_h)/20" \
+ [aw][1:v]overlay=H-h:W-w,drawtext=text="${ifn}":fontcolor=White@0.5: fontsize=30:font=Arial:x=(W-w+10)/2:y=(H-h+10)/2" \
  -map 0:a "${ifnb}.mp4"
