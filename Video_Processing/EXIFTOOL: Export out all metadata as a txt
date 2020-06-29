@@ -1,3 +1,6 @@
 exiftool -api largefilesupport=1 -r "*.MOV" > exiftooloutput.txt
 exiftool -api largefilesupport=1 -r "*.MTS" > exiftooloutput.txt
 exiftool -api largefilesupport=1 -r "*.MP4" > exiftooloutput.txt
+
+****COMBO FOR SFF******
+exiftool -api largefilesupport=1 -csv -ext mov -ext mts - ext mp4 -ext mxf -ext xmp -ext r3d -r W:\2019_Video_Projects\SFF2019_Folklife_Festival_Video_ALL > EXIF_VIDEO_FILES_EXTRACT.csv
