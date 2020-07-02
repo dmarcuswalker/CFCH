@@ -13,4 +13,13 @@ FUJIFILM X-T3
 Panasonic camera, device ID shows up under "-Model" and brand name is under "-Make"
 Panasonic DMC-GX85
 
+BlackMagic camera, device ID doesn't show up in any standard fields, just "ComBlackmagic-designCameraCameraType" which is
+Blackmagic Pocket Cinema Camera 4K
 
+For the Sony FS7, the camera metadata is stored in the sidecar xmp file. The device ID is stored under "-CameraModel" as well as "-Make" and "-Model"
+Sony PXW-FS7
+
+
+
+Conclusions: for the Sony FS-7, it might make sense to batch apply the metadata from the XMP to the MXF. Maybe try to write the tags
+-------
