@@ -1,0 +1,16 @@
+For some Sony cameras, the device ID can be extracted using the "-DeviceManufacturer" and "-DeviceModelName" tags in Exiftool
+The following cameras were identified from SFF 2019:
+Sony	ILCE-7M3 (Alpha 7 III)
+Sony	ILCE-7RM2 (Alpha 7R II)
+Sony	ILCE-7SM2 (Alpha 7S II)
+
+For Canon cameras, the device ID shows up under "-CanonModelID" and also under the generic "-Model"
+EOS 5D Mark IV
+
+For Fujifilm camera, the device ID shows up under "-Model" as well but it doesn't list brand; brand is under the "-Make" tag
+FUJIFILM X-T3
+
+Panasonic camera, device ID shows up under "-Model" and brand name is under "-Make"
+Panasonic DMC-GX85
+
+
