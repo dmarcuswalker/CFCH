@@ -1,13 +1,13 @@
- ifn="input.wav"
- ifnb="`basename \"${ifn}\" .wav`"
+ifn="input.wav"
+ifnb="`basename \"${ifn}\" .wav`"
 
- ffmpeg -i "${ifn}" -i AudioQC_Frames.png -filter_complex \
- "[0:a]showspectrum=mode=separate:slide=scroll:saturation=1.8:scale=log:gain=40:color=fire:s=1020x822,pad=1280:1024,format=yuv420p[vs]; \
-  [0:a]avectorscope=s=260x411:zoom=5:rc=40:gc=160:bc=80:rf=15:gf=10:bf=0:af=5:m=lissajous:rate=100:draw=dot:scale=lin,format=yuv420p[ss]; \
-  [0:a]showvolume=o=v:h=120:w=400:r=120:dm=30:b=5[sv]; \
-  [0:a]showwaves=s=1280x202:mode=cline:n=10:r=120:scale=lin:draw=full,format=yuv420p[sw]; \
-  [vs][ss]overlay=H[bs]; \
-  [bs][sv]overlay=H+2:h+19[bg]; \
-  [bg][sw]overlay=0:H-h[aw]; \
-  [aw][1:v]overlay=H-h:W-w,drawtext=text="${ifn}":fontcolor=White@0.5: fontsize=30:font=Arial:x=(W-w+25)/2:y=(H-h+25)/2" \
-  -map 0:a -preset faster -acodec aac -q:a 500 "${ifnb}_1280-1024.mp4"
+ffmpeg -i "${ifn}" -i AudioQC_Frames.png -filter_complex \
+"[0:a]showspectrum=mode=separate:slide=scroll:saturation=1.8:scale=log:gain=40:color=fire:s=1020x822,pad=1280:1024,format=yuv420p[vs]; \
+ [0:a]avectorscope=s=260x411:zoom=5:rc=40:gc=160:bc=80:rf=15:gf=10:bf=0:af=5:m=lissajous:rate=100:draw=dot:scale=lin,format=yuv420p[ss]; \
+ [0:a]showvolume=o=v:h=120:w=400:r=120:dm=30:b=5[sv]; \
+ [0:a]showwaves=s=1280x202:mode=cline:n=10:r=120:scale=lin:draw=full,format=yuv420p[sw]; \
+ [vs][ss]overlay=H[bs]; \
+ [bs][sv]overlay=H+2:h+19[bg]; \
+ [bg][sw]overlay=0:H-h[aw]; \
+ [aw][1:v]overlay=H-h:W-w,drawtext=text="${ifn}":fontcolor=White@0.5: fontsize=30:font=Arial:x=(W-w+25)/2:y=(H-h+25)/2" \
+ -map 0:a -preset faster -acodec aac -q:a 500 "${ifnb}.mp4"
