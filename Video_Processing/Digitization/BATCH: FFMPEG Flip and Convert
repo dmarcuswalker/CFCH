@@ -1,0 +1,3 @@
+ @echo off & setlocal EnableDelayedExpansion
+for %%a IN ("*.mov") do (ffmpeg -i "%%a" -filter:v "hflip" -map 0 -dn -c:v ffv1 -level 3 -g 1 -slicecrc 1 -slices 24 -c:a copy "%%~na_flipped.mkv" -f framemd5 -an "%%~na_FrameMD5.txt")
+ pause
