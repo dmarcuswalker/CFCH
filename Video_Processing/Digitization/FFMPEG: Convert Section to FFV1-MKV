@@ -1,0 +1,1 @@
+ffmpeg -i [input.mov] -ss [00:00:00] -to [00:00:00] -map 0 -dn -c:v ffv1 -level 3 -g 1 -slicecrc 1 -slices 24 -c:a copy [output.mkv] -f framemd5 -an [input_FrameMD5.txt]
