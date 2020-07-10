@@ -1,0 +1,1 @@
+ffplay -f lavfi "amovie=input.mp3,asplit[a][out1];[a]showspectrum=mode=separate:color=intensity:slide=1,drawtext=text='%{pts\:hms}':box=1:boxborderw=5:x=(w-text_w)/2:y=h-(text_h*2):fontsize=16:font=Mono[out0]"
