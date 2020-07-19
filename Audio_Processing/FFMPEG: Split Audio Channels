@@ -1,0 +1,4 @@
+ffmpeg -i [input.wav] -filter_complex \
+"[0:0]pan=1|c0=c0[left]; \
+ [0:0]pan=1|c0=c1[right]" \
+-map "[left]" [input_L.wav] -map "[right]" [input_R.wav]
