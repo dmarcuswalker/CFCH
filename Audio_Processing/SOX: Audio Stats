@@ -1,0 +1,5 @@
+sox [filename.wav] -n stat
+
+and
+
+sox [filename.wav] -n stats
