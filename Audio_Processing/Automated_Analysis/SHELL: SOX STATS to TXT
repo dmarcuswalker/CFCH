@@ -1,0 +1,6 @@
+Run as shell script by typing "bash" then dropping the shell file into the terminal. Use CD or PUSHD to point to the directory with the files and script first.
+
+#!/bin/bash
+for f in *.wav ; 
+do sox "$f" -n stats stat  > "${f%.wav}.txt" 2>&1 | tail -1; 
+ done
