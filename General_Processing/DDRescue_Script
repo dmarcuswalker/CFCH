@@ -1,0 +1,3 @@
+A simple DD rescue to copy a CD/DVD
+
+sudo ddrescue -b 2048 -v /dev/[disk#] /Users/arcdigital/Documents/DVD_Rips/1973-VTR-006.iso /Users/arcdigital/Documents/DVD_Rips/1973-VTR-006.log
