@@ -1,0 +1,3 @@
+Simple command to create an excerpt based upon time stamps (note: doesn't work for MP4's!)
+
+ffmpeg -ss 00:00:00 -to 00:01:00 -i [filename] -acodec copy -vcodec copy [clipname]
