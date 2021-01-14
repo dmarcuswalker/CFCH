@@ -1,0 +1,23 @@
+This script makes a CSV of the files in a directory, listing out file name (and folder name), file count (in folders), size, directory path
+
+
+
+$dir = "T:\Collections\Accessioned_Collections\Moses_and_Frances_Asch_Audio\Pending_Review\Access_Copies_CDR\Transferred_from_DATS"
+
+$results = @()
+
+gci $dir -Recurse -Depth 1 | % { 
+
+    $temp = [ordered]@{
+        NAME            = $_
+        SIZE            = "{0:N2} MB" -f ((gci $_.Fullname -Recurse | measure -Property Length -Sum -ErrorAction SilentlyContinue).Sum / 1MB)
+        FILE_COUNT      = (gci -File $_.FullName -Recurse | measure | select -ExpandProperty Count)
+        FOLDER_COUNT    = (gci -Directory $_.FullName -Recurse | measure | select -ExpandProperty Count)
+        DIRECTORY_PATH  = $_.Fullname
+    }
+
+    $results += New-Object PSObject -Property $temp
+
+}
+
+$results | export-csv -Path "T:\Collections\Accessioned_Collections\Moses_and_Frances_Asch_Audio\Pending_Review\Access_Copies_CDR\Transferred_from_DATS\output.csv" -NoTypeInformation
