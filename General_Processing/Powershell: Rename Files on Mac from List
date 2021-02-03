@@ -1,0 +1,22 @@
+Should be simple with this bash script.
+
+Change ~/Documents to the Folder where the files reside (assumes that the csv file and the jpg files are in the same Folder):
+
+
+     #!/bin/bash
+
+
+
+     cd ~/Documents
+
+     while read line          
+
+     do          
+
+          OldImageName=${line%,*}
+
+          NewImageName=${line#*,}
+
+          mv "$OldImageName" "$NewImageName"
+
+     done <"TheFile.csv"
