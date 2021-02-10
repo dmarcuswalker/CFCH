@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+
+###### HANDLE ARGUMENTS
+# If no argument is passed, show help
+if [ $# -eq 0 ] || [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+	echo "Usage: $0 filename.csv|filename.txt [skipheaders=true|false]"
+fi
+
+# The name of the batch inventory file for renaming
+batchInventoryFile="$1"
+
+# Only skip the first line of the file if we pass an argument overriding this
+if [ "$2" == "skipheaders=false" ]; then
+	skipheaders="false"
+# Skip the first line of the file, because it contains headers, and not filenames
+else
+	skipheaders="true"
+fi
+
+# We may get a situation where files a renamed with a question mark at the end due to
+# bad line endings in the source file. If so, these need to be stripped
+# See: https://stackoverflow.com/a/37567514/3298457
+#
+# Need to use tr, because sed on macOS doesn't handle line ending characters
+# (see https://stackoverflow.com/a/21622340/3298457)
+tr -d '\r' < $batchInventoryFile > $batchInventoryFile.tmp && mv $batchInventoryFile.tmp $batchInventoryFile
+
+# Determine if this is a CSV file or tab-separated (see https://stackoverflow.com/a/965072/3298457)
+filename=$(basename $batchInventoryFile)
+extension="${filename##*.}"
+# For CSV,use comma; for all other files, use tabs
+if [[ "$extension" == "csv" ]]; then
+	echo IFS will be comma
+	IFS=","
+else
+	echo IFS will be tab
+	IFS=$'\t'
+fi
+
+###### MAIN PART OF SCRIPT
+echo "Reading file names for renaming from $batchInventoryFile"
+
+if [[ "$skipheaders" == "true" ]]; then
+	columns=`head -n 1 Batch_01_Filename_List.csv | tr -d '"'`
+	oldcolumn="${columns%$IFS*}"
+	newcolumn="${columns##*$IFS}"
+	echo "Will rename files from $oldcolumn to $newcolumn"
+fi
+
+while read -r col1 col2
+do
+	if [[ "$skipheaders" == "true" ]]; then
+		skipheaders="false"
+		continue
+	fi
+
+	oldFileName=`echo $col1 | tr -d '"'`
+	newFileName=`echo $col2 | tr -d '"'`
+
+	if [[ ! -f "$oldFileName" ]]; then
+		echo "$oldFileName: could not find file"
+	else
+		echo "Renaming $oldFileName to $newFileName"
+		mv -v "$oldFileName" "$newFileName"
+
+		# Code to rename md5sums would go here
+		# oldFileNameWithoutExtension="${oldFileName%.*}"
+	fi
+done < "$batchInventoryFile"
