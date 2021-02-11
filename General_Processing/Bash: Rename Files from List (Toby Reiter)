@@ -1,3 +1,6 @@
+Note: MUST ADD TWO ROWS OF HEADERS?
+
+-----------------SCRIPT BELOW-------
 #!/usr/bin/env bash
 
 
@@ -42,7 +45,7 @@ fi
 echo "Reading file names for renaming from $batchInventoryFile"
 
 if [[ "$skipheaders" == "true" ]]; then
-	columns=`head -n 1 Batch_01_Filename_List.csv | tr -d '"'`
+	columns=`head -n 1 ListOfFiles.csv | tr -d '"'`
 	oldcolumn="${columns%$IFS*}"
 	newcolumn="${columns##*$IFS}"
 	echo "Will rename files from $oldcolumn to $newcolumn"
