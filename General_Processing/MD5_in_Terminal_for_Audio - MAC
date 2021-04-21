@@ -1,0 +1,1 @@
+openssl md5 *.wav > MD5.txt
