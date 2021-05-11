@@ -1,5 +1,5 @@
 This script makes a CSV of the files in a directory, listing out file name (and folder name), file count (in folders), size, directory path. Save the script below as a ".ps1" file and run by opening Windows Powershell and dragging in this script file. Voila!
-
+2021-05-11: this script only looks at the first level of files/folders so it doesn't show info about the files WITHIN folders... Should try to figure this out!
 ******
 
 
