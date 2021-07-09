@@ -1,3 +1,16 @@
 A simple script to generate an 8k resolution waveform image of an audio file:
 
 audiowaveform -i [inputfile.wav] -c audition --split-channels -z auto -w 7680 -h 4320 --amplitude-scale 3.0 -o [outputfile.png]
+
+
+
+
+-----------
+The whole bash script for this to be saved as ".sh" file is
+
+#!/bin/bash
+for f in *.wav ; 
+do audiowaveform -i "$f"  \
+-c audition --split-channels -z auto -w 7680 -h 4320 --amplitude-scale 3.0 -o \
+ "${f%.wav}.png" ; 
+ done
