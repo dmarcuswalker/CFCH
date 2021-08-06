@@ -23,3 +23,8 @@ gci $dir -Recurse -Depth 1 | % {
 }
 
 $results | export-csv -Path "T:\Collections\Accessioned_Collections\Moses_and_Frances_Asch_Audio\Pending_Review\Access_Copies_CDR\Transferred_from_DATS\output.csv" -NoTypeInformation
+
+
+_____
+2021-08-06
+An easy way to do this is simply "dir /a/s > filelist.txt" for the most basic output in command prompt
