@@ -1,0 +1,11 @@
+I would start by converting the mono file to "stereo":
+
+ffmpeg -i mono.wav -ac 2 mono2.wav
+
+Then create a list of files you want concatenated in a test file, as so (saved as concat_files.txt)
+file mono2.wav
+file stereo.wav
+
+Then this command should concat and produce the required output
+
+ffmpeg -f concat -safe 0 -i concat_files.txt -c copy concat_file.wav
