@@ -1,0 +1,8 @@
+For Windows, in command prompt, type:
+
+@echo Results on %DATE% for %CD% >> dirlisting2.txt & echo off & for /f "delims=*" %A in ('dir /s /b /a:-d') do echo %~fA %~zA >> dirlisting2.txt
+
+Note: You must type
+
+echo on
+to get the prompt back af
