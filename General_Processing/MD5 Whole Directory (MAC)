@@ -1,0 +1,3 @@
+Generate a list of files and checksums, in all subfolders using the following command:
+
+find . -type f -exec /sbin/md5 -r {} + > MD5.txt
