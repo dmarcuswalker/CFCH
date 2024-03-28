@@ -1,0 +1,1 @@
+ffmpeg -i SFF2002_SilkRoadProject_Tape_B2.mov -map 0 -dn -c:v ffv1 -level 3 -g 1 -slicecrc 1 -slices 24 -c:a copy SFF2002_SilkRoadProject_Tape_B1.mkv -f framemd5 -an SFF2002_SilkRoadProject_Tape_B2.framemd5
