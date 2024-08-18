@@ -1,0 +1,5 @@
+--Make a file called "folders.txt" listing out the folder names
+
+do the following terminal command:
+
+cat folders.txt | xargs mkdir
