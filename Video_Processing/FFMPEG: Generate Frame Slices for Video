@@ -1,0 +1,3 @@
+To generate a framemd5 file for a video:
+
+ffmpeg -i [filename.mkv] -f framemd5 [newfilename.mkv.framemd5]
