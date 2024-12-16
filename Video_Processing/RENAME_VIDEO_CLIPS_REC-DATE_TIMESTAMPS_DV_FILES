@@ -1,0 +1,32 @@
+This bash script will rename an entire directory of DV files (packaged from MOV files via DV Rescue) after the timestamps embedded within the file:. Note that it requires mediainfo
+
+Here's the script: "
+
+for file in $(find . -name \*.mov | sed -e 's/ /@@@/g')
+do
+file=$(echo "$file" | sed -e 's/@@@/ /g')
+record_date=$(mediainfo --Inform=General "$file" | grep 'Recorded date')
+
+if [[ -n "$record_date" ]]; then
+    date=$(echo "$record_date" | cut -c44-59 | tr ' ' '-' | tr ':' '-')
+    new_name="$(echo $(dirname "$file")/"$date".mov)"
+    echo "Found recording date -> renaming $file to $new_name"
+    mv "$file" "$new_name"
+else
+    echo "No recording date found in file $file -- skipping"
+fi
+done
+
+"
+
+----------------------
+And to run this script, execute using the following commands:
+
+step 1) cd ~/Documents/Scripts/
+step 2) chmod +x your_script.sh 
+step 3) ./your_script.sh
+
+or 
+
+
+step 4) bash your_script.sh 
